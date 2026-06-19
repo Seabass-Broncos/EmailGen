@@ -47,7 +47,7 @@ Generated links should be training/demo links, not credential-harvesting pages. 
 
 | Completion | Member | Subtask | Outputs | Measurement |
 |---------|---------|---------|---------|---------|
-| ☑ | Joyce | Define user requirements and project use cases | Requirements document, user stories, feature list | At least 8 user stories; requirements reviewed by all 3 members; scope includes generator, tone controls, intensity controls, link generator, and logging |
+| ☑ | Joyce | Define user requirements and project use cases | Requirements document, user stories, feature list | Requirements reviewed by all 3 members; scope includes generator, tone controls, intensity controls, link generator, and logging |
 | ☑ | Sebastian | Design system architecture | Architecture diagram, technology stack decision, data flow diagram | Architecture includes frontend, backend/API, LLM generation layer, URL generator, logging storage, and safety checks |
 | ☑ | Alex | Set up repository and development environment | GitHub repository, initial folder structure, README, setup instructions | Repo runs locally; README includes install/run steps; all team members can clone and start the app |
 
