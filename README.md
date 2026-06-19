@@ -249,7 +249,7 @@ Set:
 
 ```text
 OPENAI_API_KEY=your_api_key_here
-OPENAI_MODEL=gpt-5.4-mini
+OPENAI_MODEL=gpt-5.4-nano-2026-03-17
 PORT=3000
 DEMO_BASE_DOMAIN=training.example.internal
 ```
