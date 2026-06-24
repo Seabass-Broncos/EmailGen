@@ -28,6 +28,9 @@ const server = http.createServer(async (req, res) => {
       const validationError = validateInput(input);
       if (validationError) return sendJson(res, 400, { error: validationError });
 
+      const safetyError = validateSafety(input); //milestone 2
+      if (safetyError) return sendJson(res, 400, { error: safetyError }); //milestone 2
+
       const link = generateTrainingLink(input);
       const email = await generateEmail(input, link);
       const spam = checkSpamIndicators({ subject: email.subject, body: email.body });
@@ -119,6 +122,39 @@ if (require.main === module) {
   server.listen(port, () => {
     console.log(`Capstone prototype running at http://localhost:${port}`);
   });
+}
+
+// milestone 2
+function validateSafety(input) {
+  const text = [
+    input.targetProfile,
+    input.department,
+    input.organization,
+    input.senderRole,
+    input.scenarioContext,
+  ].join(" ").toLowerCase();
+
+  const blockedTerms = [
+    "collect passwords",
+    "steal credentials",
+    "harvest credentials",
+    "mfa code",
+    "2fa code",
+    "bypass spam",
+    "bypass security",
+    "malware",
+    "payload",
+    "macro",
+    "keylogger",
+    "credential portal",
+  ];
+
+  const matched = blockedTerms.find((term) => text.includes(term));
+  if (matched) {
+    return `Blocked unsafe request content: ${matched}`;
+  }
+
+  return "";
 }
 
 module.exports = { server };
